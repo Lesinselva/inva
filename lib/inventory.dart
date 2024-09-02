@@ -3,6 +3,8 @@ library my_inventory_package;
 import 'package:flutter/material.dart';
 import 'cos_container.dart';
 import 'custom_dialog.dart';
+import 'package:net_store/net_store.dart';
+
 
 class Inva extends StatefulWidget {
   final IconData firstButtonIcon;
@@ -70,8 +72,17 @@ class _InvaState extends State<Inva> {
 
   Widget buildProductContainer(String title, String price) {
     return Column(
-      children: [
-        CosContainer(
+      children: [GestureDetector(
+        onTap: () {
+          // Navigate to the new page here
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => NetStore.editProduct(), 
+            ),
+          );
+        },
+       child:  CosContainer(
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [

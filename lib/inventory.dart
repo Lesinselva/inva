@@ -1,10 +1,10 @@
 library my_inventory_package;
 
 import 'package:flutter/material.dart';
+
+import 'package:net_store/mian.dart';
 import 'cos_container.dart';
 import 'custom_dialog.dart';
-import 'package:net_store/net_store.dart';
-
 
 class Inva extends StatefulWidget {
   final IconData firstButtonIcon;
@@ -70,32 +70,34 @@ class _InvaState extends State<Inva> {
     );
   }
 
-  Widget buildProductContainer(String title, String price) {
+  Widget buildProductContainer(
+      String title, String price, BuildContext context) {
     return Column(
-      children: [GestureDetector(
-        onTap: () {
-          // Navigate to the new page here
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => NetStore.editProduct(), 
-            ),
-          );
-        },
-       child:  CosContainer(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              const Icon(Icons.add_box, size: 30),
-              const SizedBox(width: 6),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(fontSize: 18)),
-                  Text('₹$price', style: const TextStyle(fontSize: 16)),
-                ],
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NetStore.editProduct(color: Colors.black),
               ),
-            ],
+            );
+          },
+          child: CosContainer(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                const Icon(Icons.add_box, size: 30),
+                const SizedBox(width: 6),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: const TextStyle(fontSize: 18)),
+                    Text('₹$price', style: const TextStyle(fontSize: 16)),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 2),

@@ -76,7 +76,11 @@ class _InvaState extends State<Inva> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.category),
+                    Image.asset(
+                      'lib/image/category.png',
+                      package: 'inventory',
+                      height: 40,
+                    ),
                     const SizedBox(width: 6),
                     Text(title, style: const TextStyle(fontSize: 18)),
                   ],
@@ -111,7 +115,7 @@ class _InvaState extends State<Inva> {
                 Image.asset(
                   'lib/image/image.png',
                   package: 'inventory',
-                  height: 30,
+                  height: 40,
                 ),
                 const SizedBox(width: 6),
                 Column(
@@ -161,7 +165,9 @@ class _InvaState extends State<Inva> {
                             package: 'inventory', height: 150),
                         const SizedBox(height: 20),
                         const Text('No items available',
-                            style: TextStyle(fontSize: 18)),
+                            style: TextStyle(
+                              fontSize: 18,
+                            )),
                       ],
                     ),
                   )

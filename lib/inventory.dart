@@ -13,14 +13,16 @@ class Inva extends StatefulWidget {
   final String secButtonText;
   final Color color;
 
-  const Inva({
-    super.key,
-    this.firstButtonIcon,
-    this.firstButtonText,
-    required this.secButtonIcon,
-    required this.secButtonText,
-    required this.color,
-  });
+  final String title;
+
+  Inva(
+      {super.key,
+      this.firstButtonIcon,
+      this.firstButtonText,
+      required this.secButtonIcon,
+      required this.secButtonText,
+      required this.color,
+      required this.title});
 
   @override
   _InvaState createState() => _InvaState();
@@ -60,6 +62,7 @@ class _InvaState extends State<Inva> {
                   secButtonIcon: Icons.add_box,
                   secButtonText: 'Add Product',
                   color: Colors.black,
+                  title: title,
                 ),
               ),
             );

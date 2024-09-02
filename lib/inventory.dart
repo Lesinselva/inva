@@ -50,20 +50,36 @@ class _InvaState extends State<Inva> {
   Widget buildCategoryContainer(String title) {
     return Column(
       children: [
-        CosContainer(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  const Icon(Icons.category),
-                  const SizedBox(width: 6),
-                  Text(title, style: const TextStyle(fontSize: 18)),
-                ],
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Inva(
+                  firstButtonIcon: Icons.add_circle_outline,
+                  firstButtonText: 'Add Subcategory',
+                  secButtonIcon: Icons.add_box,
+                  secButtonText: 'Add Product',
+                  color: Colors.black,
+                ),
               ),
-              const Icon(Icons.more_vert)
-            ],
+            );
+          },
+          child: CosContainer(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.category),
+                    const SizedBox(width: 6),
+                    Text(title, style: const TextStyle(fontSize: 18)),
+                  ],
+                ),
+                const Icon(Icons.more_vert)
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 2),

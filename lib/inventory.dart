@@ -108,13 +108,17 @@ class _InvaState extends State<Inva> {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                const Icon(Icons.add_box, size: 30),
+                Image.asset(
+                  'lib/image/image.png',
+                  package: 'inventory',
+                  height: 30,
+                ),
                 const SizedBox(width: 6),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(title, style: const TextStyle(fontSize: 18)),
-                    Text('₹$price', style: const TextStyle(fontSize: 16)),
+                    Text('₹ $price', style: const TextStyle(fontSize: 16)),
                   ],
                 ),
               ],
@@ -153,7 +157,7 @@ class _InvaState extends State<Inva> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('lib/image/image.png',
+                        Image.asset('lib/image/file.png',
                             package: 'inventory', height: 150),
                         const SizedBox(height: 20),
                         const Text('No items available',

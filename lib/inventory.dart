@@ -137,7 +137,7 @@ class _InvaState extends State<Inva> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Inventory', style: TextStyle(fontSize: 13)),
+                Text(widget.title, style: const TextStyle(fontSize: 13)),
                 Text('Total items: $_totalItems',
                     style: const TextStyle(fontSize: 8, color: Colors.grey)),
               ],

@@ -2,6 +2,7 @@ library my_inventory_package;
 
 import 'package:flutter/material.dart';
 import 'package:net_store/mian.dart';
+import 'package:subcate/subcate.dart';
 import 'cos_container.dart';
 import 'custom_dialog.dart';
 
@@ -55,9 +56,7 @@ class _InvaState extends State<Inva> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Inva(
-                  firstButtonIcon: Icons.add_circle_outline,
-                  firstButtonText: 'Add Subcategory',
+                builder: (context) => Subcate(
                   secButtonIcon: Icons.add_box,
                   secButtonText: 'Add Product',
                   color: Colors.black,

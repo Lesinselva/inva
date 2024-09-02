@@ -153,8 +153,7 @@ class _InvaState extends State<Inva> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/your_image.png',
-                            height: 150), // Replace with your image path
+                        Image.asset('lib/image/image.png', height: 150),
                         const SizedBox(height: 20),
                         const Text('No items available',
                             style: TextStyle(fontSize: 18)),

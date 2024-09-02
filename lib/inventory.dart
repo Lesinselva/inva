@@ -153,7 +153,8 @@ class _InvaState extends State<Inva> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('lib/image/image.png', height: 150),
+                        Image.asset('lib/image/image.png',
+                            package: 'inventory', height: 150),
                         const SizedBox(height: 20),
                         const Text('No items available',
                             style: TextStyle(fontSize: 18)),

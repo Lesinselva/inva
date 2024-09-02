@@ -11,6 +11,7 @@ class Inva extends StatefulWidget {
   final String firstButtonText;
   final IconData secButtonIcon;
   final String secButtonText;
+  final Color color;
 
   const Inva({
     super.key,
@@ -18,6 +19,7 @@ class Inva extends StatefulWidget {
     required this.firstButtonText,
     required this.secButtonIcon,
     required this.secButtonText,
+    required this.color,
   });
 
   @override
@@ -40,7 +42,7 @@ class _InvaState extends State<Inva> {
   void _addProductContainer(String title, String price) {
     if (title.isNotEmpty && price.isNotEmpty) {
       setState(() {
-        containers.add(buildProductContainer(title, price));
+        containers.add(buildProductContainer(title, price, context));
         _totalItems++;
       });
     }
@@ -79,7 +81,7 @@ class _InvaState extends State<Inva> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => NetStore.editProduct(color: Colors.black),
+                builder: (context) => NetStore.editProduct(color: widget.color),
               ),
             );
           },

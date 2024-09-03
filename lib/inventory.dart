@@ -79,7 +79,7 @@ class _InvaState extends State<Inva> {
                     Image.asset(
                       'lib/image/category.png',
                       package: 'inventory',
-                      height: 40,
+                      height: 35,
                     ),
                     const SizedBox(width: 6),
                     Text(title, style: const TextStyle(fontSize: 18)),

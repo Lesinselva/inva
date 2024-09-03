@@ -134,7 +134,12 @@ class _InvaState extends State<Inva> {
       appBar: AppBar(
         title: Row(
           children: [
-            const Icon(Icons.arrow_back),
+            IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
             const SizedBox(width: 3),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

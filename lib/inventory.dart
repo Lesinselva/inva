@@ -55,9 +55,7 @@ class _InvaState extends State<Inva> {
               context,
               MaterialPageRoute(
                 builder: (context) => Subcate(
-                  firstButtonIcon: Icons.add_circle_outline,
                   firstButtonText: 'Add Subcategory',
-                  secButtonIcon: Icons.add_box,
                   secButtonText: 'Add Product',
                   color: Colors.black,
                   title: title,

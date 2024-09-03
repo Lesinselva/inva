@@ -7,22 +7,18 @@ import 'cos_container.dart';
 import 'custom_dialog.dart';
 
 class Inva extends StatefulWidget {
-  final IconData? firstButtonIcon;
   final String? firstButtonText;
-  final IconData secButtonIcon;
   final String secButtonText;
   final Color color;
-
   final String title;
 
-  const Inva(
-      {super.key,
-      this.firstButtonIcon,
-      this.firstButtonText,
-      required this.secButtonIcon,
-      required this.secButtonText,
-      required this.color,
-      required this.title});
+  const Inva({
+    super.key,
+    this.firstButtonText,
+    required this.secButtonText,
+    required this.color,
+    required this.title,
+  });
 
   @override
   _InvaState createState() => _InvaState();
@@ -184,8 +180,7 @@ class _InvaState extends State<Inva> {
             width: double.infinity,
             child: Row(
               children: [
-                if (widget.firstButtonText != null &&
-                    widget.firstButtonIcon != null)
+                if (widget.firstButtonText != null)
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
@@ -232,7 +227,9 @@ class _InvaState extends State<Inva> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(widget.firstButtonIcon),
+                            Image.asset('lib/image/addcate.png',
+                                package: 'inventory', height: 24),
+                            const SizedBox(width: 5),
                             Text(
                               widget.firstButtonText!,
                               style: const TextStyle(
@@ -305,7 +302,9 @@ class _InvaState extends State<Inva> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(widget.secButtonIcon, color: Colors.white),
+                          Image.asset('lib/image/addproduct.png',
+                              package: 'inventory', height: 24),
+                          const SizedBox(width: 5),
                           Text(
                             widget.secButtonText,
                             style: const TextStyle(

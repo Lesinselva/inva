@@ -153,7 +153,7 @@ class _InvaState extends State<Inva> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 CustomAnimatedFloatingActionButton(
-                  svgPath: 'packages/inventory/lib/images/addProduct.svg',
+                  svgPath: 'lib/images/addProduct.svg',
                   text: 'Add product',
                   onTap: () {
                     showDialog(
@@ -201,7 +201,7 @@ class _InvaState extends State<Inva> {
                 ),
                 const SizedBox(height: 16),
                 CustomAnimatedFloatingActionButton(
-                  svgPath: 'packages/inventory/lib/images/addCate.svg',
+                  svgPath: 'lib/images/addCate.svg',
                   text: 'Add Category',
                   onTap: () {
                     showDialog(

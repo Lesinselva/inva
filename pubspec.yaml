@@ -42,10 +42,10 @@ flutter:
     - lib/image/addcate.png
     - lib/image/category.png
     - lib/image/addproduct.png
-    - packages/inventory/lib/images/addCate.svg
-    - packages/inventory/lib/images/addProduct.svg
-    - packages/inventory/lib/images/product.svg
-    - packages/inventory/lib/images/category.svg
+    - lib/images/addCate.svg
+    - lib/images/addProduct.svg
+    - lib/images/product.svg
+    - lib/images/category.svg
       
   #   - images/a_dot_ham.jpeg
   #

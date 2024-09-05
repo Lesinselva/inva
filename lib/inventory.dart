@@ -183,146 +183,99 @@ class _InvaState extends State<Inva> {
             width: double.infinity,
             child: Row(
               children: [
-                if (widget.firstButtonText != null)
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            final firstFieldController =
-                                TextEditingController();
-                            return CustomDialog(
-                              firstButtonIcon: Icons.check,
-                              secondButtonIcon: Icons.close,
-                              secondButtonAction: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: Icons.category,
-                              title: 'Add Category',
-                              subtitle: 'Category title',
-                              firstButtonLabel: 'Create',
-                              firstButtonColor:
-                                  const Color.fromARGB(255, 39, 236, 22),
-                              firstButtonAction: (String title) {
-                                addCategoryContainer(title);
-                                Navigator.of(context).pop();
-                              },
-                              secondButtonLabel: 'Cancel',
-                              secondButtonColor: Colors.red,
-                              firstFieldController: firstFieldController,
-                              maxLength: 32,
-                              titleBackgroundGradient: const LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Color.fromARGB(255, 251, 255, 26),
-                                  Color.fromARGB(255, 136, 127, 1),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      child: Container(
-                        height: 55,
-                        color: const Color.fromARGB(0, 255, 255, 255),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset('lib/image/addcate.png',
-                                package: 'inventory', height: 24),
-                            const SizedBox(width: 5),
-                            Text(
-                              widget.firstButtonText!,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          final firstFieldController = TextEditingController();
-                          final secondFieldController = TextEditingController();
-
-                          return CustomDialog(
-                            icon: Icons.note_alt_outlined,
-                            secicon: Icons.currency_rupee,
-                            title: 'Add Product',
-                            subtitle: 'Product title',
-                            firstButtonLabel: 'Create',
-                            firstButtonColor:
-                                const Color.fromARGB(255, 39, 236, 22),
-                            firstButtonAction: (String title) {
-                              _addProductContainer(
-                                  title, secondFieldController.text);
-                              Navigator.of(context).pop();
-                            },
-                            secondButtonLabel: 'Cancel',
-                            secondButtonColor: Colors.red,
-                            firstFieldController: firstFieldController,
-                            secondFieldController: secondFieldController,
-                            maxLength: 100,
-                            titleBackgroundGradient: const LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Color.fromARGB(255, 45, 255, 26),
-                                Color.fromARGB(255, 1, 136, 57),
-                              ],
-                            ),
-                            firstButtonIcon: Icons.check,
-                            secondButtonIcon: Icons.close,
-                            secondButtonAction: () {
-                              Navigator.of(context).pop();
-                            },
-                          );
-                        },
-                      );
-                    },
-                    child: Container(
-                      height: 55,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Color.fromARGB(255, 45, 255, 26),
-                            Color.fromARGB(255, 1, 136, 57),
-                          ],
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('lib/image/addproduct.png',
-                              package: 'inventory', height: 24),
-                          const SizedBox(width: 5),
-                          Text(
-                            widget.secButtonText,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Add other UI elements if needed
               ],
             ),
+          ),
+        ],
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  final firstFieldController = TextEditingController();
+                  return CustomDialog(
+                    firstButtonIcon: Icons.check,
+                    secondButtonIcon: Icons.close,
+                    secondButtonAction: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: Icons.category,
+                    title: 'Add Category',
+                    subtitle: 'Category title',
+                    firstButtonLabel: 'Create',
+                    firstButtonColor: const Color.fromARGB(255, 39, 236, 22),
+                    firstButtonAction: (String title) {
+                      addCategoryContainer(title);
+                      Navigator.of(context).pop();
+                    },
+                    secondButtonLabel: 'Cancel',
+                    secondButtonColor: Colors.red,
+                    firstFieldController: firstFieldController,
+                    maxLength: 32,
+                    titleBackgroundGradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromARGB(255, 251, 255, 26),
+                        Color.fromARGB(255, 136, 127, 1),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+            backgroundColor: const Color.fromARGB(255, 39, 236, 22),
+            child: const Icon(Icons.category),
+          ),
+          const SizedBox(width: 16), // Space between buttons
+          FloatingActionButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  final firstFieldController = TextEditingController();
+                  final secondFieldController = TextEditingController();
+
+                  return CustomDialog(
+                    icon: Icons.note_alt_outlined,
+                    secicon: Icons.currency_rupee,
+                    title: 'Add Product',
+                    subtitle: 'Product title',
+                    firstButtonLabel: 'Create',
+                    firstButtonColor: const Color.fromARGB(255, 39, 236, 22),
+                    firstButtonAction: (String title) {
+                      _addProductContainer(title, secondFieldController.text);
+                      Navigator.of(context).pop();
+                    },
+                    secondButtonLabel: 'Cancel',
+                    secondButtonColor: Colors.red,
+                    firstFieldController: firstFieldController,
+                    secondFieldController: secondFieldController,
+                    maxLength: 100,
+                    titleBackgroundGradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromARGB(255, 45, 255, 26),
+                        Color.fromARGB(255, 1, 136, 57),
+                      ],
+                    ),
+                    firstButtonIcon: Icons.check,
+                    secondButtonIcon: Icons.close,
+                    secondButtonAction: () {
+                      Navigator.of(context).pop();
+                    },
+                  );
+                },
+              );
+            },
+            backgroundColor: const Color.fromARGB(255, 45, 255, 26),
+            child: const Icon(Icons.add),
           ),
         ],
       ),

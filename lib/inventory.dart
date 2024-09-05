@@ -177,20 +177,20 @@ class _InvaState extends State<Inva> {
                     },
                   ),
           ),
-          Container(
-            color: const Color.fromARGB(0, 255, 193, 7),
-            height: 55,
-            width: double.infinity,
-            child: Row(
-              children: [
-                // Add other UI elements if needed
-              ],
-            ),
-          ),
+          // Container(
+          //   color: const Color.fromARGB(0, 255, 193, 7),
+          //   height: 55,
+          //   width: double.infinity,
+          //   child: Row(
+          //     children: [
+
+          //     ],
+          //   ),
+          // ),
         ],
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      floatingActionButton: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           FloatingActionButton(
             onPressed: () {

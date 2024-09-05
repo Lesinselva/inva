@@ -8,17 +8,11 @@ import 'cos_container.dart';
 import 'custom_dialog.dart';
 
 class Inva extends StatefulWidget {
-  final String? firstButtonText;
-  final String secButtonText;
   final Color color;
-  final String title;
 
   const Inva({
     super.key,
-    this.firstButtonText,
-    required this.secButtonText,
     required this.color,
-    required this.title,
   });
 
   @override
@@ -154,6 +148,7 @@ class _InvaState extends State<Inva> {
               children: [
                 CustomAnimatedFloatingActionButton(
                   svgPath: 'lib/images/addProduct.svg',
+                  package: 'inventory',
                   text: 'Add product',
                   onTap: () {
                     showDialog(
@@ -202,6 +197,7 @@ class _InvaState extends State<Inva> {
                 const SizedBox(height: 16),
                 CustomAnimatedFloatingActionButton(
                   svgPath: 'lib/images/addCate.svg',
+                  package: 'inventory',
                   text: 'Add Category',
                   onTap: () {
                     showDialog(

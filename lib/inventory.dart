@@ -133,151 +133,132 @@ class _InvaState extends State<Inva> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            const SizedBox(width: 3),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                child: containers.isEmpty
+                    ? Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('lib/image/file.png',
+                                package: 'inventory', height: 150),
+                            const SizedBox(height: 20),
+                            const Text('No items available',
+                                style: TextStyle(fontSize: 18)),
+                          ],
+                        ),
+                      )
+                    : ListView.builder(
+                        controller: scrollController, // Add scrollController
+                        itemCount: containers.length,
+                        itemBuilder: (context, index) {
+                          return containers[index];
+                        },
+                      ),
+              ),
+            ],
+          ),
+          // Two Floating Action Buttons in a Row
+          Positioned(
+            bottom: 20,
+            left: 20,
+            right: 20,
+            child: Column(
               children: [
-                Text(widget.title, style: const TextStyle(fontSize: 13)),
-                Text('Total items: $_totalItems',
-                    style: const TextStyle(fontSize: 8, color: Colors.grey)),
+                CustomAnimatedFloatingActionButton(
+                  svgPath: 'lib/image/add_category.svg',
+                  text: 'Add product',
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        final firstFieldController = TextEditingController();
+                        final secondFieldController = TextEditingController();
+
+                        return CustomDialog(
+                          icon: Icons.note_alt_outlined,
+                          secicon: Icons.currency_rupee,
+                          title: 'Add Product',
+                          subtitle: 'Product title',
+                          firstButtonLabel: 'Create',
+                          firstButtonColor:
+                              const Color.fromARGB(255, 39, 236, 22),
+                          firstButtonAction: (String title) {
+                            _addProductContainer(
+                                title, secondFieldController.text);
+                            Navigator.of(context).pop();
+                          },
+                          secondButtonLabel: 'Cancel',
+                          secondButtonColor: Colors.red,
+                          firstFieldController: firstFieldController,
+                          secondFieldController: secondFieldController,
+                          maxLength: 100,
+                          titleBackgroundGradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color.fromARGB(255, 45, 255, 26),
+                              Color.fromARGB(255, 1, 136, 57),
+                            ],
+                          ),
+                          firstButtonIcon: Icons.check,
+                          secondButtonIcon: Icons.close,
+                          secondButtonAction: () {
+                            Navigator.of(context).pop();
+                          },
+                        );
+                      },
+                    );
+                  },
+                  scrollController: scrollController,
+                ),
+                CustomAnimatedFloatingActionButton(
+                  svgPath: 'lib/image/add_product.svg',
+                  text: 'Add Category',
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        final firstFieldController = TextEditingController();
+                        return CustomDialog(
+                          firstButtonIcon: Icons.check,
+                          secondButtonIcon: Icons.close,
+                          secondButtonAction: () {
+                            Navigator.of(context).pop();
+                          },
+                          icon: Icons.category,
+                          title: 'Add Category',
+                          subtitle: 'Category title',
+                          firstButtonLabel: 'Create',
+                          firstButtonColor:
+                              const Color.fromARGB(255, 39, 236, 22),
+                          firstButtonAction: (String title) {
+                            addCategoryContainer(title);
+                            Navigator.of(context).pop();
+                          },
+                          secondButtonLabel: 'Cancel',
+                          secondButtonColor: Colors.red,
+                          firstFieldController: firstFieldController,
+                          maxLength: 32,
+                          titleBackgroundGradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color.fromARGB(255, 251, 255, 26),
+                              Color.fromARGB(255, 136, 127, 1),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  scrollController: scrollController,
+                ),
               ],
             ),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: containers.isEmpty
-                ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('lib/image/file.png',
-                            package: 'inventory', height: 150),
-                        const SizedBox(height: 20),
-                        const Text('No items available',
-                            style: TextStyle(
-                              fontSize: 18,
-                            )),
-                      ],
-                    ),
-                  )
-                : ListView.builder(
-                    itemCount: containers.length,
-                    itemBuilder: (context, index) {
-                      return containers[index];
-                    },
-                  ),
-          ),
-          Container(
-            color: const Color.fromARGB(0, 255, 193, 7),
-            height: 55,
-            width: double.infinity,
-            child: const Row(
-              children: [],
-            ),
-          ),
-        ],
-      ),
-      floatingActionButton: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          CustomAnimatedFloatingActionButton(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  final firstFieldController = TextEditingController();
-                  final secondFieldController = TextEditingController();
-
-                  return CustomDialog(
-                    icon: Icons.note_alt_outlined,
-                    secicon: Icons.currency_rupee,
-                    title: 'Add Product',
-                    subtitle: 'Product title',
-                    firstButtonLabel: 'Create',
-                    firstButtonColor: const Color.fromARGB(255, 39, 236, 22),
-                    firstButtonAction: (String title) {
-                      _addProductContainer(title, secondFieldController.text);
-                      Navigator.of(context).pop();
-                    },
-                    secondButtonLabel: 'Cancel',
-                    secondButtonColor: Colors.red,
-                    firstFieldController: firstFieldController,
-                    secondFieldController: secondFieldController,
-                    maxLength: 100,
-                    titleBackgroundGradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromARGB(255, 45, 255, 26),
-                        Color.fromARGB(255, 1, 136, 57),
-                      ],
-                    ),
-                    firstButtonIcon: Icons.check,
-                    secondButtonIcon: Icons.close,
-                    secondButtonAction: () {
-                      Navigator.of(context).pop();
-                    },
-                  );
-                },
-              );
-            },
-            text: 'Add product',
-            scrollController: scrollController,
-            svgPath: 'lib/images/product.svg',
-          ),
-          const SizedBox(height: 16),
-          CustomAnimatedFloatingActionButton(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  final firstFieldController = TextEditingController();
-                  return CustomDialog(
-                    firstButtonIcon: Icons.check,
-                    secondButtonIcon: Icons.close,
-                    secondButtonAction: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: Icons.category,
-                    title: 'Add Category',
-                    subtitle: 'Category title',
-                    firstButtonLabel: 'Create',
-                    firstButtonColor: const Color.fromARGB(255, 39, 236, 22),
-                    firstButtonAction: (String title) {
-                      addCategoryContainer(title);
-                      Navigator.of(context).pop();
-                    },
-                    secondButtonLabel: 'Cancel',
-                    secondButtonColor: Colors.red,
-                    firstFieldController: firstFieldController,
-                    maxLength: 32,
-                    titleBackgroundGradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromARGB(255, 251, 255, 26),
-                        Color.fromARGB(255, 136, 127, 1),
-                      ],
-                    ),
-                  );
-                },
-              );
-            },
-            text: 'Add category',
-            scrollController: scrollController,
-            svgPath: 'lib/images/product.svg',
           ),
         ],
       ),

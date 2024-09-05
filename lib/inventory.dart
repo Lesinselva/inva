@@ -163,9 +163,9 @@ class _InvaState extends State<Inva> {
           ),
           Positioned(
             bottom: 20,
-            left: 20,
             right: 20,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 CustomAnimatedFloatingActionButton(
                   svgPath: 'lib/images/addProduct.svg',

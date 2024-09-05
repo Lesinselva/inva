@@ -152,7 +152,7 @@ class _InvaState extends State<Inva> {
                         ),
                       )
                     : ListView.builder(
-                        controller: scrollController, // Add scrollController
+                        controller: scrollController,
                         itemCount: containers.length,
                         itemBuilder: (context, index) {
                           return containers[index];
@@ -161,7 +161,6 @@ class _InvaState extends State<Inva> {
               ),
             ],
           ),
-          // Two Floating Action Buttons in a Row
           Positioned(
             bottom: 20,
             left: 20,
@@ -169,7 +168,7 @@ class _InvaState extends State<Inva> {
             child: Column(
               children: [
                 CustomAnimatedFloatingActionButton(
-                  svgPath: 'lib/image/add_category.svg',
+                  svgPath: 'lib/images/addProduct.svg',
                   text: 'Add product',
                   onTap: () {
                     showDialog(
@@ -216,7 +215,7 @@ class _InvaState extends State<Inva> {
                   scrollController: scrollController,
                 ),
                 CustomAnimatedFloatingActionButton(
-                  svgPath: 'lib/image/add_product.svg',
+                  svgPath: 'lib/images/addCate.svg',
                   text: 'Add Category',
                   onTap: () {
                     showDialog(

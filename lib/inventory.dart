@@ -1,6 +1,7 @@
 library my_inventory_package;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:net_store/mian.dart';
 import 'package:subcate/subcate.dart';
 import 'package:animatedfloat/animatedfloat.dart';
@@ -64,8 +65,8 @@ class _InvaState extends State<Inva> {
               children: [
                 Row(
                   children: [
-                    Image.asset(
-                      'lib/image/category.png',
+                    SvgPicture.asset(
+                      'lib/images/category.svg',
                       package: 'inventory',
                       height: 35,
                     ),
@@ -100,19 +101,13 @@ class _InvaState extends State<Inva> {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                Image.asset(
-                  'lib/image/image.png',
+                SvgPicture.asset(
+                  'lib/images/product.svg',
                   package: 'inventory',
                   height: 40,
                 ),
                 const SizedBox(width: 6),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title, style: const TextStyle(fontSize: 18)),
-                    Text('₹ $price', style: const TextStyle(fontSize: 16)),
-                  ],
-                ),
+                Text(title, style: const TextStyle(fontSize: 18)),
               ],
             ),
           ),

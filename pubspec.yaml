@@ -37,15 +37,15 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
   assets:
-    - lib/image/image.png
+    - packages/inventory/lib/image/image.png
     - lib/image/file.png
     - lib/image/addcate.png
     - lib/image/category.png
     - lib/image/addproduct.png
-    - lib/images/addCate.svg
-    - lib/images/addProduct.svg
-    - lib/images/product.svg
-    - lib/images/category.svg
+    - packages/inventory/lib/images/addCate.svg
+    - packages/inventory/lib/images/addProduct.svg
+    - packages/inventory/lib/images/product.svg
+    - packages/inventory/lib/images/category.svg
       
   #   - images/a_dot_ham.jpeg
   #

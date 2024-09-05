@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
   net_store:
    git:
      url: https://github.com/Benittostephen/NetStore.git

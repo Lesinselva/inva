@@ -214,6 +214,7 @@ class _InvaState extends State<Inva> {
                   },
                   scrollController: scrollController,
                 ),
+                const SizedBox(height: 16),
                 CustomAnimatedFloatingActionButton(
                   svgPath: 'lib/images/addCate.svg',
                   text: 'Add Category',

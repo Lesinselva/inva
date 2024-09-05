@@ -18,6 +18,10 @@ dependencies:
    git:
      url: https://github.com/Lesinselva/subcate.git
      ref: main 
+  animatedfloat:
+   git:
+     url: https://github.com/Lesinselva/animatedfloat.git
+     ref: main
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +41,10 @@ flutter:
     - lib/image/addcate.png
     - lib/image/category.png
     - lib/image/addproduct.png
+    - lib/images/addCate.svg
+    - lib/images/addProduct.svg
+    - lib/images/product.svg
+    - lib/images/category.svg
       
   #   - images/a_dot_ham.jpeg
   #

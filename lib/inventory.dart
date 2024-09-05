@@ -3,6 +3,7 @@ library my_inventory_package;
 import 'package:flutter/material.dart';
 import 'package:net_store/mian.dart';
 import 'package:subcate/subcate.dart';
+import 'package:animatedfloat/animatedfloat.dart';
 import 'cos_container.dart';
 import 'custom_dialog.dart';
 
@@ -27,6 +28,7 @@ class Inva extends StatefulWidget {
 class _InvaState extends State<Inva> {
   final List<Widget> containers = [];
   int _totalItems = 0;
+  final ScrollController scrollController = ScrollController();
 
   void addCategoryContainer(String title) {
     if (title.isNotEmpty) {
@@ -192,8 +194,8 @@ class _InvaState extends State<Inva> {
       floatingActionButton: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          FloatingActionButton(
-            onPressed: () {
+          CustomAnimatedFloatingActionButton(
+            onTap: () {
               showDialog(
                 context: context,
                 builder: (context) {
@@ -229,10 +231,11 @@ class _InvaState extends State<Inva> {
                 },
               );
             },
-            backgroundColor: const Color.fromARGB(255, 39, 236, 22),
-            child: const Icon(Icons.category),
+            text: 'Add category',
+            scrollController: scrollController,
+            svgPath: 'lib/images/product.svg',
           ),
-          const SizedBox(width: 16), // Space between buttons
+          const SizedBox(height: 16),
           FloatingActionButton(
             onPressed: () {
               showDialog(

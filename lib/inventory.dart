@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:net_store/mian.dart';
 import 'package:subcate/subcate.dart';
 import 'package:animatedfloat/animatedfloat.dart';
-import 'cos_container.dart';
 import 'custom_dialog.dart';
 
 class Inva extends StatefulWidget {
@@ -129,7 +128,20 @@ class _InvaState extends State<Inva> {
                   controller: scrollController,
                   itemCount: containers.length,
                   itemBuilder: (context, index) {
-                    return containers[index];
+                    return Column(
+                      children: [
+                        containers[index],
+                        if (index != containers.length - 1)
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 6),
+                            child: Divider(
+                              thickness: 1,
+                              height: 1,
+                              color: Color(0x7704938D),
+                            ),
+                          ),
+                      ],
+                    );
                   },
                 ),
               ),

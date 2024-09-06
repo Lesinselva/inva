@@ -133,7 +133,7 @@ class _InvaState extends State<Inva> {
                         containers[index],
                         if (index != containers.length - 1)
                           const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            padding: EdgeInsets.symmetric(horizontal: 12),
                             child: Divider(
                               thickness: 1,
                               height: 1,

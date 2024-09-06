@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:net_store/mian.dart';
 import 'package:subcate/subcate.dart';
 import 'package:animatedfloat/animatedfloat.dart';
-import 'cos_container.dart';
 import 'custom_dialog.dart';
 
 class Inva extends StatefulWidget {

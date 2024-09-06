@@ -23,6 +23,7 @@ dependencies:
    git:
      url: https://github.com/Lesinselva/animatedfloat.git
      ref: main
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

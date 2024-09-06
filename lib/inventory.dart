@@ -6,6 +6,7 @@ import 'package:net_store/mian.dart';
 import 'package:subcate/subcate.dart';
 import 'package:animatedfloat/animatedfloat.dart';
 import 'custom_dialog.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Inva extends StatefulWidget {
   final Color color;
@@ -67,10 +68,16 @@ class _InvaState extends State<Inva> {
                     SvgPicture.asset(
                       'lib/images/category.svg',
                       package: 'inventory',
-                      height: 35,
+                      width: 33,
+                      height: 33,
                     ),
-                    const SizedBox(width: 6),
-                    Text(title, style: const TextStyle(fontSize: 18)),
+                    const SizedBox(width: 12),
+                    Text(title,
+                        style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w400))),
                   ],
                 ),
                 const Icon(Icons.more_vert)
@@ -78,7 +85,6 @@ class _InvaState extends State<Inva> {
             ),
           ),
         ),
-        const SizedBox(height: 2),
       ],
     );
   }
@@ -103,15 +109,20 @@ class _InvaState extends State<Inva> {
                 SvgPicture.asset(
                   'lib/images/product.svg',
                   package: 'inventory',
-                  height: 40,
+                  height: 33,
+                  width: 33,
                 ),
-                const SizedBox(width: 6),
-                Text(title, style: const TextStyle(fontSize: 18)),
+                const SizedBox(width: 12),
+                Text(title,
+                    style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w300))),
               ],
             ),
           ),
         ),
-        const SizedBox(height: 2),
       ],
     );
   }

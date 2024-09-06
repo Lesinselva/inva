@@ -97,7 +97,7 @@ class _InvaState extends State<Inva> {
               ),
             );
           },
-          child: CosContainer(
+          child: Container(
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
